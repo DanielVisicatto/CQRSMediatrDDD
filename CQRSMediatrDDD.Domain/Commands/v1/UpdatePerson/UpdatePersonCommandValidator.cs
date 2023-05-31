@@ -15,7 +15,7 @@ public class UpdatePersonCommandValidator : AbstractValidator<UpdatePersonComman
             .NotEmpty().WithMessage("The field {PropertyName} is mandatory")
             .Must(StringHelper.IsCpf).WithMessage("The field {PropertyName} is not valid for {PropertyName}");
 
-        RuleFor(x => x.DateBirth)
+        RuleFor(x => x.BirthDate)
             .NotEmpty().WithMessage("The field {PropertyName} is mandatory");
 
         RuleFor(x => x.Email)
