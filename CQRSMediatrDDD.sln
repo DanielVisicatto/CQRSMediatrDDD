@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSMediatrDDD.API", "CQRSMediatrDDD\CQRSMediatrDDD.API.csproj", "{68118ACB-C059-4DCC-830F-D4EE3F766D36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{C9553DEA-A1E8-4A28-953D-86220C6E21B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{1AEC2A33-F585-4C88-99A8-5B0EDD5370DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infraestructure", "3 - Infraestructure", "{AC7D5FB1-184A-4345-A077-CB14956E9AB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSMediatrDDD.Infra.Repository", "CQRSMediatrDDD.Infra.Repository\CQRSMediatrDDD.Infra.Repository.csproj", "{4C660B4B-5703-4F68-845B-AAA12ECEC456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSMediatrDDD.Domain", "CQRSMediatrDDD.Domain\CQRSMediatrDDD.Domain.csproj", "{297D54B3-E619-4A83-8BFE-A7AF89F05842}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68118ACB-C059-4DCC-830F-D4EE3F766D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68118ACB-C059-4DCC-830F-D4EE3F766D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68118ACB-C059-4DCC-830F-D4EE3F766D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68118ACB-C059-4DCC-830F-D4EE3F766D36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C660B4B-5703-4F68-845B-AAA12ECEC456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C660B4B-5703-4F68-845B-AAA12ECEC456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C660B4B-5703-4F68-845B-AAA12ECEC456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C660B4B-5703-4F68-845B-AAA12ECEC456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297D54B3-E619-4A83-8BFE-A7AF89F05842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297D54B3-E619-4A83-8BFE-A7AF89F05842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297D54B3-E619-4A83-8BFE-A7AF89F05842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297D54B3-E619-4A83-8BFE-A7AF89F05842}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{68118ACB-C059-4DCC-830F-D4EE3F766D36} = {C9553DEA-A1E8-4A28-953D-86220C6E21B4}
+		{4C660B4B-5703-4F68-845B-AAA12ECEC456} = {AC7D5FB1-184A-4345-A077-CB14956E9AB1}
+		{297D54B3-E619-4A83-8BFE-A7AF89F05842} = {1AEC2A33-F585-4C88-99A8-5B0EDD5370DA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F530E03F-904A-44C8-81D1-87AE9CE12443}
+	EndGlobalSection
+EndGlobal
