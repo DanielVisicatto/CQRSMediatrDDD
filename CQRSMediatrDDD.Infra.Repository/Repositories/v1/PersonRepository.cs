@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace CQRSMediatrDDD.Infra.Repository.Repositories.v1
 {
-    internal class PersonRepository : BaseRepository<Person>, IPersonRepository
+    public class PersonRepository : BaseRepository<Person>, IPersonRepository
     {
         public PersonRepository (IMongoClient client, IOptions<MongoRepositorySettings> settings) : base (client, settings) { }
 

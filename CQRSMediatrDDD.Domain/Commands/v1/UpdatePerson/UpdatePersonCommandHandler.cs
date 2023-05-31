@@ -6,7 +6,7 @@ using CQRSMediatrDDD.Domain.ValueObjects.v1;
 
 namespace CQRSMediatrDDD.Domain.Commands.v1.UpdatePerson;
 
-internal class UpdatePersonCommandHandler : BaseHandler
+public class UpdatePersonCommandHandler : BaseHandler
 {
     private readonly IMapper _mapper;
     private readonly IPersonRepository _repository;
