@@ -1,11 +1,10 @@
-﻿namespace CQRSMediatrDDD.Domain.ValueObjects.v1
+﻿namespace CQRSMediatrDDD.Domain.ValueObjects.v1;
+
+public record Email
 {
-    public record Email
+    public Email(string value)
     {
-        public Email(string value)
-        {
-            Value = value.ToUpperInvariant();
-        }
-        public string Value { get; set; }
+        Value = value.ToUpperInvariant();
     }
+    public string Value { get; set; }
 }

@@ -1,6 +1,5 @@
-﻿namespace CQRSMediatrDDD.Domain.Core.v1
+﻿namespace CQRSMediatrDDD.Domain.Core.v1;
+
+public class BaseHandler
 {
-    public class BaseHandler
-    {
-    }
 }
