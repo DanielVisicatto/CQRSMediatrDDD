@@ -2,6 +2,7 @@
 using CQRSMediatrDDD.Domain.Commands.v1.DeletePerson;
 using CQRSMediatrDDD.Domain.Commands.v1.UpdatePerson;
 using CQRSMediatrDDD.Domain.Contracts.v1;
+using CQRSMediatrDDD.Domain.Queries.v1.GetPerson;
 using CQRSMediatrDDD.Infra.Repository;
 using CQRSMediatrDDD.Infra.Repository.Repositories.v1;
 using FluentValidation;
@@ -17,7 +18,7 @@ public static class Bootstrap
         services.AddRepositories(configuration);
         services.AddMappers();
         services.AddCommands();
-        //services.AddQueries();
+        services.AddQueries();
         services.AddValidators();
 
         return services;
@@ -30,11 +31,11 @@ public static class Bootstrap
         services.AddTransient<DeletePersonCommandHandler>();
     }
 
-    //private static void AddQueries(this IServiceCollection services)
-    //{
+    private static void AddQueries(this IServiceCollection services)
+    {
     //    services.AddTransient<ListPersonQueryHandler>();
-    //    services.AddTransient<GetPersonQueryHandler>();
-    //}
+        services.AddTransient<GetPersonQueryHandler>();
+    }
 
     private static void AddValidators(this IServiceCollection services)
     {
@@ -48,8 +49,8 @@ public static class Bootstrap
     {
         services.AddAutoMapper(
             typeof(CreatePersonCommandProfile),
-            typeof(UpdatePersonCommandProfile)
-            //typeof(GetPersonQueryProfile),
+            typeof(UpdatePersonCommandProfile),
+            typeof(GetPersonQueryProfile)
             //typeof(ListPersonQueryProfile)
             );
     }

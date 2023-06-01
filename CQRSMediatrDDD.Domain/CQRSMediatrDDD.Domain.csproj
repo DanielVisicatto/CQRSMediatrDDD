@@ -13,4 +13,8 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\v1\ListPerson\" />
+  </ItemGroup>
+
 </Project>
