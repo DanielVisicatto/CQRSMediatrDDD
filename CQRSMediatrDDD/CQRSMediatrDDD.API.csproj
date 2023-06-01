@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CQRSMediatrDDD.Domain\CQRSMediatrDDD.Domain.csproj" />
     <ProjectReference Include="..\CQRSMediatrDDD.Infra.Repository\CQRSMediatrDDD.Infra.Repository.csproj" />
   </ItemGroup>
