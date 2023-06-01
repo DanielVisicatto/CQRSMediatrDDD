@@ -1,6 +1,6 @@
 ﻿namespace CQRSMediatrDDD.Domain.Queries.v1.ListPerson;
 
-public class PersonItemQueryResponse
+public class ListPersonQueryResponse
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

@@ -8,7 +8,7 @@ public class ListPersonQueryProfile : Profile
 {
     public ListPersonQueryProfile()
     {
-        CreateMap<Person, PersonItemQueryResponse>()
+        CreateMap<Person, ListPersonQueryResponse>()
             .ForMember(fieldOutput => fieldOutput.Cpf, option => option
                 .MapFrom(input => input.Cpf.Value.FormatCpf()))
             .ForMember(fieldOutput => fieldOutput.Name, option => option

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CQRSMediatrDDD.Domain\CQRSMediatrDDD.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

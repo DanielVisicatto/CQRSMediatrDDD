@@ -1,7 +1,7 @@
 ﻿using CQRSMediatrDDD.Domain.Contracts.v1;
 using CQRSMediatrDDD.Domain.ValueObjects.v1;
 
-namespace CQRSMediatrDDD.Domain.Entities.v1;
+namespace CQRSMediatrDDD.Domain.Core.v1.Entities.v1;
 
 public class Person : IEntity
 {
@@ -12,7 +12,7 @@ public class Person : IEntity
         UpdatedAt = updatedAt;
     }
 
-    public Person(Name name, Document cpf, Email email, DateTime birthDate) : this (Guid.NewGuid(), DateTime.Now, DateTime.Now)
+    public Person(Name name, Document cpf, Email email, DateTime birthDate) : this(Guid.NewGuid(), DateTime.Now, DateTime.Now)
     {
         Name = name;
         Cpf = cpf;
@@ -20,7 +20,7 @@ public class Person : IEntity
         BirthDate = birthDate;
     }
 
-    public Person(Guid id, Name name, Document cpf, Email email, DateTime birthDate, DateTime createdAt) : this (id, createdAt, DateTime.Now)
+    public Person(Guid id, Name name, Document cpf, Email email, DateTime birthDate, DateTime createdAt) : this(id, createdAt, DateTime.Now)
     {
         Name = name;
         Cpf = cpf;
