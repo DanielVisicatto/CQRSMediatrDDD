@@ -1,9 +1,14 @@
 using CQRSMediatrDDD.Job;
+using CQRSMediatrDDD.Job.Workers.v1;
 
-IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices(services =>
+var host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((host, services) =>
     {
-        services.AddHostedService<Worker>();
+        var configuration = host.Configuration;
+
+        services.AddRepositories(configuration);
+        services.AddCache(configuration);
+        services.AddHostedService<CacheLoaderWorker>();
     })
     .Build();
 
