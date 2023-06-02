@@ -3,10 +3,11 @@ using CQRSMediatrDDD.Domain.Contracts.v1;
 using CQRSMediatrDDD.Domain.Core.v1;
 using CQRSMediatrDDD.Domain.Entities.v1;
 using EasyNetQ;
+using MediatR;
 
 namespace CQRSMediatrDDD.Domain.Commands.v1.UpdatePerson;
 
-public class UpdatePersonCommandHandler : BaseHandler
+public class UpdatePersonCommandHandler : BaseHandler, IRequestHandler<UpdatePersonCommand>
 {
     private readonly IBus _bus;
     private readonly IMapper _mapper;
@@ -23,7 +24,7 @@ public class UpdatePersonCommandHandler : BaseHandler
         _bus = bus;
     }
 
-    public async Task HandleAsync(UpdatePersonCommand command, CancellationToken cancellationToken)
+    public async Task Handle(UpdatePersonCommand command, CancellationToken cancellationToken)
     {
         var dataBaseEntity = await _repository.FindByIdAsync(command.Id, cancellationToken);
         if(dataBaseEntity is null)

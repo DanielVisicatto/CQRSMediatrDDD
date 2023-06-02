@@ -4,6 +4,7 @@ using CQRSMediatrDDD.Domain.Commands.v1.UpdatePerson;
 using CQRSMediatrDDD.Domain.Contracts.v1;
 using CQRSMediatrDDD.Domain.Queries.v1.GetPerson;
 using CQRSMediatrDDD.Domain.Queries.v1.ListPerson;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -15,31 +16,17 @@ namespace CQRSMediatrDDD.API.Controllers.v1;
 [ApiController]
 public class PeopleController : CoreController
 {
-    private readonly CreatePersonCommandHandler _createPersonCommandHandler;
-    private readonly GetPersonQueryHandler _getPersonQueryHandler;
-    private readonly ListPersonQueryHandler _listPersonQueryHandler;
-    private readonly UpdatePersonCommandHandler _updatePersonCommandHandler;
-    private readonly DeletePersonCommandHandler _deletePersonCommandHandler;
+    private readonly IMediator _mediator;    
 
-    public PeopleController(
-        INotificationContext notificationContext,
-        CreatePersonCommandHandler createPersonCommandHandler,
-        GetPersonQueryHandler getPersonQueryHandler,
-        ListPersonQueryHandler listPersonQueryHandler,
-        UpdatePersonCommandHandler updatePersonCommandHandler,
-        DeletePersonCommandHandler deletePersonCommandHandler) : base(notificationContext)
+    public PeopleController(IMediator mediator, INotificationContext notificationContext) : base (notificationContext, mediator)       
     {
-        _createPersonCommandHandler = createPersonCommandHandler;
-        _getPersonQueryHandler = getPersonQueryHandler;
-        _listPersonQueryHandler = listPersonQueryHandler;
-        _updatePersonCommandHandler = updatePersonCommandHandler;
-        _deletePersonCommandHandler = deletePersonCommandHandler;
+        _mediator = mediator;      
     }
 
     [HttpPost(Name = "Insert Person")]
     public async Task<IActionResult> InsertAsync([FromBody] CreatePersonCommand command, CancellationToken cancellationToken)
     {
-        var response = await _createPersonCommandHandler.HandleAsync(command, cancellationToken);
+        var response = await _mediator.Send(command, cancellationToken);
 
         return GetResponse(response, HttpStatusCode.Created);
        
@@ -48,14 +35,14 @@ public class PeopleController : CoreController
     [HttpGet("{id:guid}", Name = "Get Person By Id")]
     public async Task<IActionResult> GetByIdAsync([FromRoute] Guid id, CancellationToken cancellationToken)
     {
-        var response = await _getPersonQueryHandler.HandleAsync(new GetPersonQuery(id), cancellationToken);
+        var response = await _mediator.Send(new GetPersonQuery(id), cancellationToken);
         return GetResponse(response);
     }
 
     [HttpGet(Name = "List People")]
     public async Task<IActionResult> GetAsync([FromQuery] string? name, [FromQuery] string? cpf, CancellationToken cancellationToken)
     {
-        var response = await _listPersonQueryHandler.HandleAsync(new ListPersonQuery(name, cpf), cancellationToken);
+        var response = await _mediator.Send(new ListPersonQuery(name, cpf), cancellationToken);
         return GetResponse(response);
     }
 
@@ -63,14 +50,14 @@ public class PeopleController : CoreController
     public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdatePersonCommand command, CancellationToken cancellationToken)
     {
         command.Id = id;
-        await _updatePersonCommandHandler.HandleAsync(command, cancellationToken);
+        await _mediator.Send(command, cancellationToken);
         return GetResponse(successCode: HttpStatusCode.NoContent);
     }
 
     [HttpDelete("{id:guid}", Name = "Delete Person By Id")]
     public async Task<IActionResult> DeleteByIdAsync([FromRoute] Guid id, CancellationToken cancellationToken)
     {
-        await _deletePersonCommandHandler.Handleasync(new DeletepersonCommand(id), cancellationToken);
+        await _mediator.Send(new DeletepersonCommand(id), cancellationToken);
         return GetResponse(successCode: HttpStatusCode.NoContent);
     }
 }

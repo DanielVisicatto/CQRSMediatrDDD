@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using MediatR;
+using System.Text.Json.Serialization;
 
 namespace CQRSMediatrDDD.Domain.Commands.v1.UpdatePerson;
 
-public class UpdatePersonCommand
+public class UpdatePersonCommand : IRequest
 {
     public UpdatePersonCommand(string? name, string? cpf, string? email, DateTime birthDate)
     {

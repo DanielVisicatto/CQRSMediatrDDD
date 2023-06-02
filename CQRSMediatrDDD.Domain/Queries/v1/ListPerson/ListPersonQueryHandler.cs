@@ -3,11 +3,12 @@ using CQRSMediatrDDD.Domain.Contracts.v1;
 using CQRSMediatrDDD.Domain.Core.v1;
 using CQRSMediatrDDD.Domain.Entities.v1;
 using CQRSMediatrDDD.Domain.Helpers.v1;
+using MediatR;
 using System.Collections.Immutable;
 
 namespace CQRSMediatrDDD.Domain.Queries.v1.ListPerson;
 
-public class ListPersonQueryHandler : BaseHandler
+public class ListPersonQueryHandler : BaseHandler, IRequestHandler<ListPersonQuery, IEnumerable<ListPersonQueryResponse>>
 {
     private readonly ICacheRepository<List<Person>> _cacheRepository;
     private readonly IMapper _mapper;
@@ -24,7 +25,7 @@ public class ListPersonQueryHandler : BaseHandler
         _repository = repository;
     }
 
-    public async Task<IEnumerable<ListPersonQueryResponse>> HandleAsync(ListPersonQuery command, CancellationToken cancellationToken)
+    public async Task<IEnumerable<ListPersonQueryResponse>> Handle(ListPersonQuery command, CancellationToken cancellationToken)
     {
         var key = GetKey(new[] { command.Name, command.Cpf });
         var cachePeople = await _cacheRepository.GetAsync(key);

@@ -1,6 +1,8 @@
-﻿namespace CQRSMediatrDDD.Domain.Queries.v1.ListPerson;
+﻿using MediatR;
 
-public class ListPersonQuery
+namespace CQRSMediatrDDD.Domain.Queries.v1.ListPerson;
+
+public class ListPersonQuery : IRequest<IEnumerable<ListPersonQueryResponse>>
 {
     public ListPersonQuery(string? name, string? cpf)
     {

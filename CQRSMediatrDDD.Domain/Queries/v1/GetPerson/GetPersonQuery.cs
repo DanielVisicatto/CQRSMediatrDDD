@@ -1,6 +1,8 @@
-﻿namespace CQRSMediatrDDD.Domain.Queries.v1.GetPerson;
+﻿using MediatR;
 
-public class GetPersonQuery
+namespace CQRSMediatrDDD.Domain.Queries.v1.GetPerson;
+
+public class GetPersonQuery : IRequest<GetPersonQueryResponse>
 {
     public GetPersonQuery(Guid id)
     {

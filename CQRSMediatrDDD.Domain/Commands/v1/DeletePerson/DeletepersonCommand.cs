@@ -1,6 +1,8 @@
-﻿namespace CQRSMediatrDDD.Domain.Commands.v1.DeletePerson;
+﻿using MediatR;
 
-public class DeletepersonCommand
+namespace CQRSMediatrDDD.Domain.Commands.v1.DeletePerson;
+
+public class DeletepersonCommand : IRequest
 {
     public DeletepersonCommand(Guid id)
     {

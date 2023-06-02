@@ -1,6 +1,8 @@
-﻿namespace CQRSMediatrDDD.Domain.Commands.v1.CreatePerson;
+﻿using MediatR;
 
-public class CreatePersonCommand
+namespace CQRSMediatrDDD.Domain.Commands.v1.CreatePerson;
+
+public class CreatePersonCommand : IRequest<Guid>
 {
     public CreatePersonCommand(string? name, string? cpf, string? email, DateTime birthDate)
     {

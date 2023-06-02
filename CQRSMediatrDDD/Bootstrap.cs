@@ -28,6 +28,7 @@ public static class Bootstrap
         services.AddValidators();
         services.AddMessageBroker(configuration);
         services.AddNotificationContext();
+        services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<BaseHandler>());
 
         return services;
     }
