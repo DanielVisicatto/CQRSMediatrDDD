@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CQRSMediatrDDD.Domain\CQRSMediatrDDD.Domain.csproj" />
+    <ProjectReference Include="..\CQRSMediatrDDD.Infra.Cache\CQRSMediatrDDD.Infra.Cache.csproj" />
     <ProjectReference Include="..\CQRSMediatrDDD.Infra.Repository\CQRSMediatrDDD.Infra.Repository.csproj" />
   </ItemGroup>
 

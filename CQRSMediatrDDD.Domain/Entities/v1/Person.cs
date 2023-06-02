@@ -1,7 +1,7 @@
 ﻿using CQRSMediatrDDD.Domain.Contracts.v1;
 using CQRSMediatrDDD.Domain.ValueObjects.v1;
 
-namespace CQRSMediatrDDD.Domain.Core.v1.Entities.v1;
+namespace CQRSMediatrDDD.Domain.Entities.v1;
 
 public class Person : IEntity
 {

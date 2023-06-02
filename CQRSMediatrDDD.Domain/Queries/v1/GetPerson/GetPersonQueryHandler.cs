@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CQRSMediatrDDD.Domain.Contracts.v1;
 using CQRSMediatrDDD.Domain.Core.v1;
-using CQRSMediatrDDD.Domain.Core.v1.Entities.v1;
+using CQRSMediatrDDD.Domain.Entities.v1;
 
 namespace CQRSMediatrDDD.Domain.Queries.v1.GetPerson;
 
