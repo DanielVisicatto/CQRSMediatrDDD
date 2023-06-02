@@ -5,9 +5,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-CQRSMediatrDDD.Consumer-c721ba36-6f97-4233-994c-20241c58b8bd</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EasyNetQ" Version="7.5.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CQRSMediatrDDD.Domain\CQRSMediatrDDD.Domain.csproj" />
+    <ProjectReference Include="..\CQRSMediatrDDD.Infra.Repository\CQRSMediatrDDD.Infra.Repository.csproj" />
   </ItemGroup>
 </Project>
